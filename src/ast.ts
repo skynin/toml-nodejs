@@ -62,7 +62,7 @@ export interface StringNode {
 
 export interface IntegerNode {
   type: 'INTEGER';
-  value: bigint;
+  value: number|bigint;
 }
 
 export interface FloatNode {

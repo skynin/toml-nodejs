@@ -64,7 +64,7 @@ interface Output {
   };
   database: {
     enabled: boolean;
-    ports: bigint[];
+    ports: number[];
     data: (string | number)[][];
     temp_targets: {
       cpu: number;
@@ -108,7 +108,7 @@ When retrieving the value of a key from a key/value pair, the value is typed acc
 | TOML data type   | JavaScript type                                                                                 |
 |------------------|-------------------------------------------------------------------------------------------------|
 | string           | [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#string_type)   |
-| integer          | [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#bigint_type)   |
+| integer          | Number if less than `Number.MAX_SAFE_INTEGER` \| [BigInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#bigint_type)   |
 | float            | [Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#number_type)   |
 | boolean          | [Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#boolean_type) |
 | offset date-time | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date)   |

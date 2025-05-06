@@ -6,7 +6,7 @@
     "lib": [
       "es2023"
     ],
-    "module": "es2022",
+    "module": "NodeNext",
     "moduleResolution": "nodenext",
     "outDir": "./dist",
     "skipLibCheck": true,

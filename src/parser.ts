@@ -102,19 +102,26 @@ const parseInteger = (
 const MAX_INTEGER = 2n ** (64n - 1n) - 1n;
 
 const parseBigInt = (value: string, radix: 10 | 16 | 8 | 2) => {
-  let int: bigint;
+  let int: number | bigint;
 
   try {
-    int = BigInt(`${RADIX_PREFIXES[radix]}${value}`);
+    const intString = `${RADIX_PREFIXES[radix]}${value}`;
+
+    int = Number(intString);
+    if (Number.isSafeInteger(int)) {
+      return int || 0;
+    }
+
+    int = BigInt(intString);
   } catch {
-    throw new TOMLError();
+    throw new TOMLError(`Error parseting integer: ${value}`);
   }
 
   // If an integer cannot be represented losslessly, an error must be thrown.
   //
   // https://toml.io/en/v1.0.0#integer
   if (int > MAX_INTEGER) {
-    throw new TOMLError();
+    throw new TOMLError(`Integer out of range: ${int} > ${MAX_INTEGER}`);
   }
 
   return int;

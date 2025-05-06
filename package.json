@@ -21,17 +21,19 @@
   ],
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "lint": "eslint . --report-unused-disable-directives --ext .cjs,.ts --max-warnings 0"
+    "lint": "eslint . --report-unused-disable-directives --ext .cjs,.ts --max-warnings 0",
+    "test": "node --import=tsx --test"
   },
   "devDependencies": {
     "@types/node": "^18.16.3",
-    "@typescript-eslint/eslint-plugin": "^5.59.1",
-    "@typescript-eslint/parser": "^5.59.1",
-    "eslint": "^8.39.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.8",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0",
+    "tsx": "^4.19.4",
     "typescript": "^5.0.4"
   },
   "engines": {
